@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTNL fitness</title>
+  <link rel="stylesheet" href="/css/styles.css">
+ {{{_sections.css}}}
+</head>
+<body>
+<div class="wrapper">
+  
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="hamburger__inner">
+         <div class="one"></div>
+         <div class="two"></div>
+         <div class="three"></div>
+       </div>
+    </div>
+    <div class="menu">
+      <div class="logo">
+        <a class="navbar-brand" href="#"><img src="/images/Logo1.png" height="150px" ></a>
+      </div>
+      <div class="right_menu">
+        <form id="frmLogout" action="/account/logout" method="POST" ></form>
+        <ul >	
+         {{#if auth}}
+          <li class="nav-item">
+          <a class="nav-link" href="/cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Shopping cart( {{cartSummary}});
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Hi, <b>{{authUser.User_name}}</b>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/account/profile">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              Profile
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">
+             <i class="fas fa-sign-out-alt"></i>
+              Sign Out
+            </a>
+          </div>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/mycourses">
+            <i class="fas fa-suitcase"></i>
+              My Courses
+            </a>
+          </div>
+        </li>
+        {{else}}				
+          <li>
+            <a title="Login" href="/account/login"><span class="fa fa-sign-in-alt"></span> Member Login </a>
+          </li>
+        <li><a title="Register Now" href="/account/register"><span class="fa fa-user"></span> Register</a></li>
+        {{/if}} 
+        <li> 
+          <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        </li>                              
+    </ul>
+
+      </div>
+    </div>
+  </div>
+    
+  <div class="main_container">
+      <div class="sidebar">
+          <div class="sidebar__inner">
+            <ul>
+              <li>
+                <a href="/" >
+                  <span class="icon"><i class="fas fa-home"></i></span>
+                  <span class="title">HOME</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="icon"><i class="fas fa-dumbbell"></i></span>
+                  <span class="title">Workout</span>
+                </a>
+                <div class="submenu">
+                  <ul>
+                    <li>
+                      <a href="/muscle"><i class="fas fa-dumbbell">&nbsp;Muscle</i></a>
+                    </li>
+                    <li>
+                      <a href="/cardio"><i class="fas fa-running">&nbsp;Cardio</i></a>
+                    </li>
+                    <li>
+                      <a href="workoutArticle"><i class="fas fa-book">&nbsp;Article</i></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="icon"><i class="fas fa-utensils"></i></span>
+                  <span class="title">Nutrion</span>
+                </a>
+                <div class="submenu">
+                  <ul>
+                    <li>
+                      <a href="/menu"><i class="fas fa-list">&nbsp;Menu</i></a>
+                    </li>
+                    <li>
+                      <a href="/nutrionArticle"><i class="fas fa-book">&nbsp;Article</i></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="/scheduler">
+                  <span class="icon"><i class="fas fa-clock"></i></span>
+                  <span class="title">Scheduler</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                  <span class="title">Shop</span>
+                </a>
+                <div class="submenu">
+                  <ul>
+                    <li>
+                      <a href="/course/buycourse"><i class="fab fa-leanpub">&nbsp;Coures</i></a>
+                    </li>
+                    <li>
+                      <a href="/shop/bySupplement"><i class="fas fa-tools">&nbsp;Supplement</i></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <a href="#">
+                  <span class="icon"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+                  <span class="title">More</span>
+                </a>
+                <div class="submenu">
+                  <ul>
+                    <li>
+                      <a href="/adv"><i class="fas fa-ad">&nbsp;Advertisement</i></a>
+                    </li>
+                    <li>
+                      <a href="/postAdv"><i class="fas fa-pen-nib">&nbsp;Post Ads</i></a>
+                    </li>
+                    <li>
+                      <a href="/postArticle"><i class="fas fa-upload">&nbsp;Post Article</i></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+      </div>
+      <div class="container">
+      {{{body}}}  
+      </div>
+    </div>	
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".hamburger .hamburger__inner").click(function(){
+			  $(".wrapper").toggleClass("active")
+			})
+		})
+	</script>
+   {{{_sections.js}}}
+</body>
+
+</html>
